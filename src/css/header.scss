@@ -1,0 +1,25 @@
+header {
+  background-color: #ffdd0d;
+  padding: 16px 8px;
+
+  section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    svg {
+      font-size: 20px;
+    }
+  }
+
+  .bottom-line {
+    border-bottom: 2px solid rgba(44, 38, 5, 0.1);
+    width: 50%;
+    margin: 12px auto 0;
+  }
+}
