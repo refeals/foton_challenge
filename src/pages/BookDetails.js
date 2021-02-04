@@ -9,9 +9,16 @@ function BookDetails({ match }) {
     return <Redirect to="/books" />
   }
 
-  console.log(book)
-
-  return <div>BookDetails</div>
+  return (
+    <div className="book-details">
+      <div className="header-grid">
+        <div className="left">
+          <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
+          <p className="pages">216 pages</p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default BookDetails
