@@ -6,7 +6,6 @@ function Header() {
   const history = useHistory()
 
   const handleBack = () => {
-    console.log(history)
     history.goBack()
   }
 

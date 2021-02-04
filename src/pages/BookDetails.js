@@ -6,7 +6,7 @@ import {
   AiOutlineHeart,
   AiFillHeart,
 } from "react-icons/ai"
-import { toggleFavorite } from "../actions/books_actions"
+import { giveBookStars, toggleFavorite } from "../actions/books_actions"
 import "../css/bookDetails.scss"
 
 function BookDetails({ match }) {
@@ -28,7 +28,25 @@ function BookDetails({ match }) {
     dispatch(toggleFavorite(book.id))
   }
 
-  console.log(book)
+  const handleGiveStar = (value) => {
+    dispatch(giveBookStars(book.id, value))
+  }
+
+  const renderStars = () => {
+    const starCount = book.stars || 0
+    let icons = []
+
+    for (let i = 0; i < starCount; i++) {
+      icons.push(<AiFillStar key={i} onClick={() => handleGiveStar(i + 1)} />)
+    }
+    for (let i = starCount; i < 5; i++) {
+      icons.push(
+        <AiOutlineStar key={i} onClick={() => handleGiveStar(i + 1)} />,
+      )
+    }
+
+    return icons
+  }
 
   return (
     <div className="book-details">
@@ -44,13 +62,7 @@ function BookDetails({ match }) {
             <div className="price">
               R$ {saleInfo.retailPrice ? saleInfo.retailPrice.amount : "N/A"}
             </div>
-            <div className="stars">
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
-            </div>
+            <div className="stars">{renderStars()}</div>
           </div>
           <div className="buttons">
             <button className="buy" onClick={handleBuy}>

@@ -1,3 +1,4 @@
 export const GET_BOOKS = "GET_BOOKS"
 export const UPDATE_BOOKS = "UPDATE_BOOKS"
 export const TOGGLE_FAVORITE = "TOGGLE_FAVORITE"
+export const GIVE_BOOK_STARS = "GIVE_BOOK_STARS"

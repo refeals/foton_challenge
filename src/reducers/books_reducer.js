@@ -2,6 +2,7 @@ import {
   GET_BOOKS,
   UPDATE_BOOKS,
   TOGGLE_FAVORITE,
+  GIVE_BOOK_STARS,
 } from "../actions/action_types"
 
 const initialState = {}
@@ -25,6 +26,17 @@ const reducer = (state = initialState, action) => {
             return item
           } else {
             return { ...item, favorited: !item.favorited }
+          }
+        }),
+      }
+    case GIVE_BOOK_STARS:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id !== action.payload.bookId) {
+            return item
+          } else {
+            return { ...item, stars: action.payload.value }
           }
         }),
       }

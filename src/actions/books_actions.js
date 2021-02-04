@@ -1,5 +1,10 @@
 import { api } from "../api"
-import { GET_BOOKS, UPDATE_BOOKS, TOGGLE_FAVORITE } from "./action_types"
+import {
+  GET_BOOKS,
+  UPDATE_BOOKS,
+  TOGGLE_FAVORITE,
+  GIVE_BOOK_STARS,
+} from "./action_types"
 
 export const getBooks = (q, onSuccess) => (dispatch) => {
   return api
@@ -25,4 +30,8 @@ export const getMoreBooks = (q, maxResults = 22, startIndex = 0, onSuccess) => (
 
 export const toggleFavorite = (bookId) => (dispatch) => {
   dispatch({ type: TOGGLE_FAVORITE, payload: bookId })
+}
+
+export const giveBookStars = (bookId, value) => (dispatch) => {
+  dispatch({ type: GIVE_BOOK_STARS, payload: { bookId, value } })
 }
