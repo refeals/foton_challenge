@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { AiOutlineReload } from "react-icons/ai"
 
 import Loading from "../components/Loading"
-import { getBooks, getMoreBooks } from "../actions/books_actions"
+import { getMoreBooks } from "../actions/books_actions"
 import "../css/bookList.scss"
 
 function BookList({ history }) {
