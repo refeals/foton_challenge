@@ -8,16 +8,16 @@ import Header from "./components/Header"
 const Routes = () => {
   return (
     <>
-      <Header />
-      <div className="app-content">
-        <BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <div className="app-content">
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/books" exact component={BookList} />
             <Route path="/books/:id" exact component={BookDetails} />
           </Switch>
-        </BrowserRouter>
-      </div>
+        </div>
+      </BrowserRouter>
     </>
   )
 }

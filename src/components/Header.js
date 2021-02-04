@@ -1,11 +1,19 @@
 import { AiOutlineArrowLeft, AiOutlineSearch } from "react-icons/ai"
+import { useHistory } from "react-router-dom"
 import "../css/header.scss"
 
 function Header() {
+  const history = useHistory()
+
+  const handleBack = () => {
+    console.log(history)
+    history.goBack()
+  }
+
   return (
     <header>
       <section>
-        <AiOutlineArrowLeft />
+        <AiOutlineArrowLeft onClick={handleBack} />
         <h1>Web Development Books</h1>
         <AiOutlineSearch />
       </section>
