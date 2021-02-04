@@ -33,7 +33,7 @@ function BookDetails({ match }) {
   }
 
   const renderStars = () => {
-    const starCount = book.stars || 0
+    const starCount = book.stars ?? 0
     let icons = []
 
     for (let i = 0; i < starCount; i++) {
@@ -57,10 +57,10 @@ function BookDetails({ match }) {
         </div>
         <div className="right">
           <h2 className="book-title">{volumeInfo.title}</h2>
-          <p className="authors">{volumeInfo.authors.join(", ")}</p>
+          <p className="authors">{volumeInfo.authors?.join(", ")}</p>
           <div className="price-stars">
             <div className="price">
-              R$ {saleInfo.retailPrice ? saleInfo.retailPrice.amount : "N/A"}
+              R$ {saleInfo.retailPrice?.amount ?? "N/A"}
             </div>
             <div className="stars">{renderStars()}</div>
           </div>

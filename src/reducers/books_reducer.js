@@ -4,6 +4,7 @@ import {
   TOGGLE_FAVORITE,
   GIVE_BOOK_STARS,
   SET_FILTER,
+  SET_BOOKS_INITIAL,
 } from "../actions/action_types"
 
 const initialState = {}
@@ -50,6 +51,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         filter: action.payload,
       }
+    case SET_BOOKS_INITIAL:
+      return initialState
     default:
       return state
   }

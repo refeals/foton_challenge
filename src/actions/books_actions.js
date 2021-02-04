@@ -5,6 +5,7 @@ import {
   TOGGLE_FAVORITE,
   GIVE_BOOK_STARS,
   SET_FILTER,
+  SET_BOOKS_INITIAL,
 } from "./action_types"
 
 export const getBooks = (q, onSuccess) => (dispatch) => {
@@ -39,4 +40,8 @@ export const giveBookStars = (bookId, value) => (dispatch) => {
 
 export const setFilter = (value) => (dispatch) => {
   dispatch({ type: SET_FILTER, payload: value })
+}
+
+export const setBooksInitial = () => (dispatch) => {
+  dispatch({ type: SET_BOOKS_INITIAL })
 }

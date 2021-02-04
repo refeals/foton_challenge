@@ -7,17 +7,18 @@ import Loading from "../components/Loading"
 import { getBooks, getMoreBooks } from "../actions/books_actions"
 import "../css/bookList.scss"
 
-function BookList() {
+function BookList({ history }) {
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
   const [page, setPage] = useState(1)
   const books = useSelector((state) => state.books, shallowEqual)
+  const query = useSelector((state) => state.query, shallowEqual)
   const dispatch = useDispatch()
 
   const filteredByImageBooks =
     books?.items?.filter(
       (book) => book.volumeInfo?.imageLinks?.smallThumbnail,
-    ) || []
+    ) ?? []
 
   const filteredBooks = filteredByImageBooks.filter((book) =>
     book.volumeInfo.title.toUpperCase().includes(books.filter.toUpperCase()),
@@ -26,8 +27,8 @@ function BookList() {
   const pageSize = 22
 
   useEffect(() => {
-    if (Object.keys(books).length === 0) {
-      dispatch(getBooks("web development", () => setLoading(false)))
+    if (query.length === 0) {
+      history.push("/")
     } else {
       setLoading(false)
     }
@@ -37,7 +38,7 @@ function BookList() {
   const handleLoadMore = () => {
     setLoadingMore(true)
     dispatch(
-      getMoreBooks("web development", pageSize, page * pageSize, () => {
+      getMoreBooks(query, pageSize, page * pageSize, () => {
         setLoadingMore(false)
         setPage(page + 1)
       }),

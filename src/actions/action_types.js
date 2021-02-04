@@ -3,3 +3,6 @@ export const UPDATE_BOOKS = "UPDATE_BOOKS"
 export const TOGGLE_FAVORITE = "TOGGLE_FAVORITE"
 export const GIVE_BOOK_STARS = "GIVE_BOOK_STARS"
 export const SET_FILTER = "SET_FILTER"
+export const SET_BOOKS_INITIAL = "SET_BOOKS_INITIAL"
+
+export const SET_QUERY = "SET_QUERY"
