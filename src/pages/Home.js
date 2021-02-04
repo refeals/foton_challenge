@@ -33,6 +33,7 @@ function Home({ history }) {
       <button className="ux" onClick={() => handleBookQuery("ux design")}>
         UX Design Book List
       </button>
+      <p className="author">Created by Rafael Siqueira</p>
     </div>
   )
 }

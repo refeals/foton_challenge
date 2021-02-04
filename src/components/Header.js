@@ -27,7 +27,7 @@ function Header() {
     <header>
       <section>
         <AiOutlineArrowLeft onClick={handleBack} />
-        <h1>Web Development Books</h1>
+        <h1>Foton Web Challenge - Books</h1>
         <AiOutlineSearch onClick={handleShowInput} />
       </section>
       <div className="bottom-line"></div>
