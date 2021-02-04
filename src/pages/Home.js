@@ -10,6 +10,7 @@ function Home({ history }) {
   useEffect(() => {
     dispatch(setQuery(""))
     dispatch(setBooksInitial(""))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleBookQuery = (query) => {
