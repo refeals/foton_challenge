@@ -1,6 +1,10 @@
-import { GET_BOOKS, UPDATE_BOOKS } from "../actions/action_types"
+import {
+  GET_BOOKS,
+  UPDATE_BOOKS,
+  TOGGLE_FAVORITE,
+} from "../actions/action_types"
 
-const initialState = []
+const initialState = {}
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +16,17 @@ const reducer = (state = initialState, action) => {
         ...action.payload,
         items: [...state.items, ...action.payload.items],
         loadedItems: state.loadedItems + action.payload.items.length,
+      }
+    case TOGGLE_FAVORITE:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id !== action.payload) {
+            return item
+          } else {
+            return { ...item, favorited: !item.favorited }
+          }
+        }),
       }
     default:
       return state

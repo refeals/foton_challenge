@@ -1,17 +1,18 @@
 import { Redirect } from "react-router-dom"
-import { shallowEqual, useSelector } from "react-redux"
+import { shallowEqual, useDispatch, useSelector } from "react-redux"
 import {
   AiOutlineStar,
   AiFillStar,
   AiOutlineHeart,
   AiFillHeart,
 } from "react-icons/ai"
+import { toggleFavorite } from "../actions/books_actions"
 import "../css/bookDetails.scss"
 
 function BookDetails({ match }) {
   const books = useSelector((state) => state.books, shallowEqual)
   const book = books?.items?.find((item) => item.id === match.params.id)
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
   if (!book) {
     return <Redirect to="/books" />
@@ -19,8 +20,12 @@ function BookDetails({ match }) {
 
   const { volumeInfo, saleInfo } = book
 
+  const handleBuy = () => {
+    console.log("handleBuy")
+  }
+
   const handleToggleFavorite = () => {
-    // dispatch(toggleFavorite(book.id))
+    dispatch(toggleFavorite(book.id))
   }
 
   console.log(book)
@@ -48,7 +53,9 @@ function BookDetails({ match }) {
             </div>
           </div>
           <div className="buttons">
-            <button className="buy">Buy</button>
+            <button className="buy" onClick={handleBuy}>
+              Buy
+            </button>
             <button className="heart" onClick={handleToggleFavorite}>
               {book.favorited ? <AiFillHeart /> : <AiOutlineHeart />}
             </button>

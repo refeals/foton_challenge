@@ -1,5 +1,5 @@
 import { api } from "../api"
-import { GET_BOOKS, UPDATE_BOOKS } from "./action_types"
+import { GET_BOOKS, UPDATE_BOOKS, TOGGLE_FAVORITE } from "./action_types"
 
 export const getBooks = (q, onSuccess) => (dispatch) => {
   return api
@@ -21,4 +21,8 @@ export const getMoreBooks = (q, maxResults = 22, startIndex = 0, onSuccess) => (
       onSuccess && onSuccess()
     })
     .catch((err) => console.log(err))
+}
+
+export const toggleFavorite = (bookId) => (dispatch) => {
+  dispatch({ type: TOGGLE_FAVORITE, payload: bookId })
 }

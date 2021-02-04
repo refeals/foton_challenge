@@ -21,7 +21,11 @@ function BookList() {
   const pageSize = 22
 
   useEffect(() => {
-    dispatch(getBooks("web development", () => setLoading(false)))
+    if (Object.keys(books).length === 0) {
+      dispatch(getBooks("web development", () => setLoading(false)))
+    } else {
+      setLoading(false)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
