@@ -1,4 +1,7 @@
 .book-details {
+  display: flex;
+  flex-direction: column;
+
   // reset
   p {
     margin: 0;
@@ -88,6 +91,7 @@
   }
 
   .description {
+    flex: 1;
     background-color: white;
     color: rgba(0, 0, 0, 0.7);
     padding: 12px;

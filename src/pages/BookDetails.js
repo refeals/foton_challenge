@@ -21,7 +21,7 @@ function BookDetails({ match }) {
   const { volumeInfo, saleInfo } = book
 
   const handleBuy = () => {
-    console.log("handleBuy")
+    window.location.href = volumeInfo.infoLink
   }
 
   const handleToggleFavorite = () => {
