@@ -4,6 +4,7 @@ import {
   UPDATE_BOOKS,
   TOGGLE_FAVORITE,
   GIVE_BOOK_STARS,
+  SET_FILTER,
 } from "./action_types"
 
 export const getBooks = (q, onSuccess) => (dispatch) => {
@@ -34,4 +35,8 @@ export const toggleFavorite = (bookId) => (dispatch) => {
 
 export const giveBookStars = (bookId, value) => (dispatch) => {
   dispatch({ type: GIVE_BOOK_STARS, payload: { bookId, value } })
+}
+
+export const setFilter = (value) => (dispatch) => {
+  dispatch({ type: SET_FILTER, payload: value })
 }

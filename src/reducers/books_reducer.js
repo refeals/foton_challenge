@@ -3,6 +3,7 @@ import {
   UPDATE_BOOKS,
   TOGGLE_FAVORITE,
   GIVE_BOOK_STARS,
+  SET_FILTER,
 } from "../actions/action_types"
 
 const initialState = {}
@@ -10,7 +11,11 @@ const initialState = {}
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BOOKS:
-      return { ...action.payload, loadedItems: action.payload.items.length }
+      return {
+        ...action.payload,
+        loadedItems: action.payload.items.length,
+        filter: "",
+      }
     case UPDATE_BOOKS:
       return {
         ...state,
@@ -39,6 +44,11 @@ const reducer = (state = initialState, action) => {
             return { ...item, stars: action.payload.value }
           }
         }),
+      }
+    case SET_FILTER:
+      return {
+        ...state,
+        filter: action.payload,
       }
     default:
       return state

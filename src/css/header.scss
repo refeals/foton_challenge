@@ -1,4 +1,5 @@
 header {
+  position: relative;
   background-color: #ffdd0d;
   padding: 16px 8px;
 
@@ -21,5 +22,18 @@ header {
     border-bottom: 2px solid rgba(44, 38, 5, 0.1);
     width: 50%;
     margin: 12px auto 0;
+  }
+
+  .filter-input {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    transform: translateX(100%);
+    transition: all 0.2s ease;
+
+    &.show {
+      right: 8px + 20px + 8px;
+      transform: translateX(0);
+    }
   }
 }

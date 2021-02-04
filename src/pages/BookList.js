@@ -14,10 +14,15 @@ function BookList() {
   const books = useSelector((state) => state.books, shallowEqual)
   const dispatch = useDispatch()
 
-  const filteredBooks =
+  const filteredByImageBooks =
     books?.items?.filter(
       (book) => book.volumeInfo?.imageLinks?.smallThumbnail,
     ) || []
+
+  const filteredBooks = filteredByImageBooks.filter((book) =>
+    book.volumeInfo.title.toUpperCase().includes(books.filter.toUpperCase()),
+  )
+
   const pageSize = 22
 
   useEffect(() => {
