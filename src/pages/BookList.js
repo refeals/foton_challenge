@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { AiOutlineReload } from "react-icons/ai"
+
+import Loading from "../components/Loading"
 import { getBooks, getMoreBooks } from "../actions/books_actions"
 import "../css/bookList.scss"
 
@@ -34,11 +36,11 @@ function BookList() {
   }
 
   if (loading) {
-    return <div>Loading</div>
+    return <Loading />
   }
 
   return (
-    <div className="home">
+    <div className="book-list-container">
       <div className="book-list">
         {filteredBooks.map((item) => (
           <Link to={`/books/${item.id}`} className="book-item" key={item.id}>

@@ -9,13 +9,15 @@ const Routes = () => {
   return (
     <>
       <Header />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/books" exact component={BookList} />
-          <Route path="/books/:id" exact component={BookDetails} />
-        </Switch>
-      </BrowserRouter>
+      <div className="app-content">
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/books" exact component={BookList} />
+            <Route path="/books/:id" exact component={BookDetails} />
+          </Switch>
+        </BrowserRouter>
+      </div>
     </>
   )
 }

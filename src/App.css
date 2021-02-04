@@ -1,4 +1,14 @@
 .App {
+  background-color: #ffdd0d;
   color: #2c2605;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App .app-content {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
