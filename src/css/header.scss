@@ -27,13 +27,11 @@ header {
   .filter-input {
     position: absolute;
     top: 16px;
-    right: 0;
-    transform: translateX(100%);
-    transition: all 0.2s ease;
+    right: 8px + 20px + 8px;
+    z-index: -1;
 
     &.show {
-      right: 8px + 20px + 8px;
-      transform: translateX(0);
+      z-index: 0;
     }
   }
 }
